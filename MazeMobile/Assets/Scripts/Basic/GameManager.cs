@@ -14,6 +14,7 @@ public class GameManager {
 				m_Instance.gameObject = new GameObject ("_gameManager");
 				m_Instance.gameObject.AddComponent <InputController>();
 				m_Instance.gameObject.AddComponent <Timer>();
+				m_Instance.gameObject.AddComponent <LevelManager>();
 			}
 			return m_Instance;
 		}
@@ -46,6 +47,16 @@ public class GameManager {
 			if (m_EventBus == null)
 				m_EventBus = new EventBus ();
 			return m_EventBus;
+		}
+	}
+
+
+	private LevelManager m_LevelManager;
+	public LevelManager LevelManager {
+		get {
+			if (m_LevelManager == null)
+				m_LevelManager = gameObject.GetComponent <LevelManager> ();
+			return m_LevelManager;
 		}
 	}
 
