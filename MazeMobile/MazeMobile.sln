@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeMobile", "Assembly-CSharp.csproj", "{10225659-0B89-374E-9864-023E38EE9899}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeMobile", "Assembly-CSharp-firstpass.csproj", "{FA04B92C-BD48-1708-5114-4F5E808C7A7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeMobile", "Assembly-CSharp-Editor-firstpass.csproj", "{B9187724-C251-BA4B-B01B-F15231437034}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{10225659-0B89-374E-9864-023E38EE9899}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10225659-0B89-374E-9864-023E38EE9899}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10225659-0B89-374E-9864-023E38EE9899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA04B92C-BD48-1708-5114-4F5E808C7A7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA04B92C-BD48-1708-5114-4F5E808C7A7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA04B92C-BD48-1708-5114-4F5E808C7A7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA04B92C-BD48-1708-5114-4F5E808C7A7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9187724-C251-BA4B-B01B-F15231437034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9187724-C251-BA4B-B01B-F15231437034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9187724-C251-BA4B-B01B-F15231437034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9187724-C251-BA4B-B01B-F15231437034}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
