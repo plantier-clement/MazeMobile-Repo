@@ -24,6 +24,7 @@ public class InputController : MonoBehaviour {
 		MoveAway = CrossPlatformInputManager.GetButton ("MoveAway");
 		#endif
 
+
 		#if UNITY_EDITOR
 		MoveCCW = Input.GetAxis ("Horizontal") > 0 || CrossPlatformInputManager.GetAxis ("Horizontal") > 0;
 		MoveCW = Input.GetAxis ("Horizontal") < 0 || CrossPlatformInputManager.GetAxis ("Horizontal") < 0;

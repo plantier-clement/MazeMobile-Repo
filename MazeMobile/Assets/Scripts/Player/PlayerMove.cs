@@ -5,15 +5,23 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
 
-	[SerializeField] float playerSpeed;
-	[SerializeField] float bridgeSpeed;
+	[System.Serializable]
+	public class playerSpeed {
+	
+		public float innerSpeed = 80;
+		public float mediumSpeed = 60;
+		public float outerSpeed = 40;
+	}
+
+	[SerializeField] playerSpeed speed;
+	[SerializeField] float bridgeCrossTime;
 	[SerializeField] AnimationCurve bridgeCurve;
 
 	[SerializeField] Transform startBridgeIn;
 	[SerializeField] Transform startBridgeOut;
 
-	float playerCurrentRadius;
 	bool canCrossBridge;
+	float speedToUse;
 
 	Transform start;
 	Transform goal;
@@ -57,13 +65,28 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void UpdateMovement (){
+
+
+		if(currentLayerIndex == 0)
+			speedToUse = speed.innerSpeed;
+
+		if (currentLayerIndex == 1)
+			speedToUse = speed.mediumSpeed;
+
+		if (currentLayerIndex == 2)
+			speedToUse = speed.outerSpeed;
+
+		if (currentLayerIndex == GameManager.Instance.LevelManager.NbOfLayers)
+			speedToUse = 0;
+
+
 		if(InputController.MoveCW){
-			playerMovement = -playerSpeed;
+			playerMovement = -speedToUse;
 			return;
 		}
 
 		if(InputController.MoveCCW){
-			playerMovement = playerSpeed;
+			playerMovement = speedToUse;
 			return;
 		}
 
@@ -96,14 +119,7 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void CrossBridge(){
-
-
-		/*
-		Vector3 desiredPosition = bridgeOtherSide.position;
-		transform.position = Vector3.MoveTowards (transform.position, desiredPosition, bridgeSpeed);
-		*/
-		StartCoroutine (LerpCross (bridgeSpeed));
-
+		StartCoroutine (LerpCross (bridgeCrossTime));
 
 	}
 
@@ -115,7 +131,6 @@ public class PlayerMove : MonoBehaviour {
 		while (elapsedTime <= duration) {
 			elapsedTime += Time.deltaTime;
 
-
 			float percent = Mathf.Clamp01(elapsedTime / duration);
 			float curvePercent = bridgeCurve.Evaluate (percent);
 			transform.position = Vector3.LerpUnclamped (transform.position, desiredPosition, curvePercent);
@@ -123,6 +138,7 @@ public class PlayerMove : MonoBehaviour {
 			yield return null;
 		}
 		transform.position = desiredPosition;
+
 	}
 
 

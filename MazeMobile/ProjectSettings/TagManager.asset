@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BridgeIn
   - BridgeOut
+  - Layer
   layers:
   - Default
   - TransparentFX
