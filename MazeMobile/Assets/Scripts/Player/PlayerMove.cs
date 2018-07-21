@@ -24,7 +24,6 @@ public class PlayerMove : MonoBehaviour {
 	float playerMovement;
 	int currentLayerIndex;
 
-
 	private InputController m_InputController;
 	private InputController InputController {
 		get {

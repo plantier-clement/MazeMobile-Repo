@@ -1,18 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class InputController : MonoBehaviour {
-
-
-
-	public enum EInputMode {
-		MENU,
-		GAME
-	}
-
-	public EInputMode InputMode = EInputMode.GAME;
-
 
 	public bool IsMoving;
 
@@ -24,30 +15,24 @@ public class InputController : MonoBehaviour {
 
 
 	void Update(){
-	
-		if (InputMode == EInputMode.MENU) {
-			// stuff
-			return;
-		}
-
-		if (InputMode == EInputMode.GAME) {
-			// stuff
-			MoveCCW = Input.GetAxis ("Horizontal") > 0;
-			MoveCW = Input.GetAxis ("Horizontal") < 0;
-			MoveCloser = Input.GetButtonUp ("MoveCloser");
-			MoveAway = Input.GetButtonUp ("MoveAway");
 
 
-			IsMoving = MoveCCW || MoveCW;
-			return;
-		}
-			
-			
+		#if UNITY_ANDROID
+		MoveCCW = CrossPlatformInputManager.GetAxis ("Horizontal") > 0;
+		MoveCW = CrossPlatformInputManager.GetAxis ("Horizontal") < 0;
+		MoveCloser = CrossPlatformInputManager.GetButton ("MoveCloser");
+		MoveAway = CrossPlatformInputManager.GetButton ("MoveAway");
+		#endif
 
+		#if UNITY_EDITOR
+		MoveCCW = Input.GetAxis ("Horizontal") > 0 || CrossPlatformInputManager.GetAxis ("Horizontal") > 0;
+		MoveCW = Input.GetAxis ("Horizontal") < 0 || CrossPlatformInputManager.GetAxis ("Horizontal") < 0;
+		MoveCloser = Input.GetButtonUp ("MoveCloser") || CrossPlatformInputManager.GetButton ("MoveCloser");
+		MoveAway = Input.GetButtonUp ("MoveAway") || CrossPlatformInputManager.GetButton ("MoveAway");
+		#endif
+
+		IsMoving = MoveCCW || MoveCW;
+		return;
 	}
 
-
-	public void SetInputMode (EInputMode newMode) {
-		InputMode = newMode;
-	}
 }
