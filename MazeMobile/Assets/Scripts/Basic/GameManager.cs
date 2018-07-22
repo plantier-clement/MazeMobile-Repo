@@ -6,6 +6,8 @@ public class GameManager {
 
 	private GameObject gameObject;
 
+	public bool IsGamePaused = false;
+
 	private static GameManager m_Instance;
 	public static GameManager Instance {
 		get {
@@ -57,6 +59,17 @@ public class GameManager {
 			if (m_LevelManager == null)
 				m_LevelManager = gameObject.GetComponent <LevelManager> ();
 			return m_LevelManager;
+		}
+	}
+
+
+	private Player m_Player;
+	public Player Player{
+		get {
+			return m_Player;
+		}
+		set {
+			m_Player = value;
 		}
 	}
 

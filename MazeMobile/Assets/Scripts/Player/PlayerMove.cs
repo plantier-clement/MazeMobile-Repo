@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Player))]
 public class PlayerMove : MonoBehaviour {
 
 
@@ -32,6 +33,7 @@ public class PlayerMove : MonoBehaviour {
 	float playerMovement;
 	int currentLayerIndex;
 
+
 	private InputController m_InputController;
 	private InputController InputController {
 		get {
@@ -40,7 +42,7 @@ public class PlayerMove : MonoBehaviour {
 			return m_InputController;
 		}
 	}
-		
+
 
 	void Start(){
 		start = GameManager.Instance.LevelManager.Start.transform;
@@ -50,9 +52,12 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void FixedUpdate(){
+		FaceTowardsGoal ();
+		if (!GameManager.Instance.Player.PlayerHealth.IsAlive)
+			return;
 		UpdateMovement ();
 		MoveAround ();
-		FaceTowardsGoal ();
+	
 
 	}
 
@@ -65,7 +70,6 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void UpdateMovement (){
-
 
 		if(currentLayerIndex == 0)
 			speedToUse = speed.innerSpeed;
