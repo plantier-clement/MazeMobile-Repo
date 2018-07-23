@@ -20,7 +20,7 @@ public class InputController : MonoBehaviour {
 	public bool MoveCloser;
 	public bool MoveAway;
 
-	public bool Pause; // create a gameobject for pause menu with input detection in it
+	public bool Pause; 
 
 
 	void Update(){
@@ -31,16 +31,16 @@ public class InputController : MonoBehaviour {
 			MoveCW = CrossPlatformInputManager.GetAxis ("Horizontal") < 0;
 			MoveCloser = CrossPlatformInputManager.GetButton ("MoveCloser");
 			MoveAway = CrossPlatformInputManager.GetButton ("MoveAway");
-			// Pause = CrossPlatformInputManager.GetButton ("Pause");
+			Pause = CrossPlatformInputManager.GetButton ("Pause");
 			#endif
 
 
 			#if UNITY_EDITOR
 			MoveCCW = Input.GetAxis ("Horizontal") > 0 || CrossPlatformInputManager.GetAxis ("Horizontal") > 0;
 			MoveCW = Input.GetAxis ("Horizontal") < 0 || CrossPlatformInputManager.GetAxis ("Horizontal") < 0;
-			MoveCloser = Input.GetButtonUp ("MoveCloser") || CrossPlatformInputManager.GetButton ("MoveCloser");
-			MoveAway = Input.GetButtonUp ("MoveAway") || CrossPlatformInputManager.GetButton ("MoveAway");
-			Pause = Input.GetButtonDown ("Cancel");
+			MoveCloser = Input.GetButtonDown ("MoveCloser") || CrossPlatformInputManager.GetButtonDown ("MoveCloser");
+			MoveAway = Input.GetButtonDown ("MoveAway") || CrossPlatformInputManager.GetButtonDown ("MoveAway");
+			Pause = Input.GetButtonDown ("Pause") || CrossPlatformInputManager.GetButtonDown ("Pause");
 			#endif
 
 			IsMoving = MoveCCW || MoveCW;
@@ -51,13 +51,12 @@ public class InputController : MonoBehaviour {
 
 		if (InputMode == EInputMode.MENU) {
 			#if UNITY_ANDROID
-			MoveAway = CrossPlatformInputManager.GetButton ("MoveAway");
-			// Pause = CrossPlatformInputManager.GetButton ("Pause");
+			Pause = CrossPlatformInputManager.GetButton ("Pause");
 			#endif
 
 
 			#if UNITY_EDITOR
-			Pause = Input.GetButtonDown ("Cancel");
+			Pause = Input.GetButtonDown ("Pause") || CrossPlatformInputManager.GetButtonDown ("Pause");
 			#endif
 		
 		}

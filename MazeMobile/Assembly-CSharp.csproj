@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Level\BridgeDetector.cs" />
      <Compile Include="Assets\Scripts\Level\Layer.cs" />
      <Compile Include="Assets\Scripts\Level\LevelManager.cs" />
+     <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\NME\Nme.cs" />
      <Compile Include="Assets\Scripts\NME\NmeDamage.cs" />
      <Compile Include="Assets\Scripts\NME\NmeHealth.cs" />
