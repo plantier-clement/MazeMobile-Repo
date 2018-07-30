@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Nme : MonoBehaviour {
 
+	[SerializeField] int m_NmeLayer;
+	public int GetNmeLayer () {
+		return m_NmeLayer;
+	}
+
 
 	private NmeMove m_NmeMove;
 	public NmeMove NmeMove {

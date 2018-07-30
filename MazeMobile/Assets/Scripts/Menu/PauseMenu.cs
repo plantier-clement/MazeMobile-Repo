@@ -6,23 +6,24 @@ public class PauseMenu : MonoBehaviour {
 
 	[SerializeField] GameObject escapeMenuPanel;
 
+
 	void Awake () {
 		escapeMenuPanel.SetActive (false);
 	}
-	
+
+
 	void Update () {
 
 		if (GameManager.Instance.InputController.Pause) {
-
-			if (GameManager.Instance.IsGamePaused) {
-				ResumeGame ();
-				print ("resume");
-				return;
-			}
 		
 			if (!GameManager.Instance.IsGamePaused) {
 				PauseGame ();
-				print ("pause");
+				return;
+			}
+
+			if (GameManager.Instance.IsGamePaused) {
+				ResumeGame ();
+				return;
 			}
 		}
 	}

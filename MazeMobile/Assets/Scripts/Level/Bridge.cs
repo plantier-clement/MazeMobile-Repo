@@ -8,7 +8,6 @@ public class Bridge : MonoBehaviour {
 	[SerializeField] GameObject bridgeIn;
 	[SerializeField] GameObject bridgeOut;
 	[SerializeField] GameObject linkPrefab;
-	public float factor = 0.25f;
 
 	Transform goal;
 
@@ -56,15 +55,15 @@ public class Bridge : MonoBehaviour {
 
 
 		GameObject copy = Instantiate (linkPrefab, Vector3.zero, Quaternion.identity, this.transform);
-		copy.transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((goal.position.y - copy.transform.position.y), (goal.position.x - copy.transform.position.x)) * Mathf.Rad2Deg);
 		copy.transform.position = Vector3.Lerp (bridgeIn.transform.position, bridgeOut.transform.position, 0.5f);
+		copy.transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((goal.position.y - copy.transform.position.y), (goal.position.x - copy.transform.position.x)) * Mathf.Rad2Deg);
+
 
 		RectTransform rt = copy.GetComponent <RectTransform>();
 
 		float height;
 		height = Vector3.Distance (bridgeIn.transform.localPosition, bridgeOut.transform.localPosition);
-		rt.sizeDelta = new Vector2(height * factor, rt.sizeDelta.y);
-		//copy.transform.SetParent (this.transform, true);
+		rt.sizeDelta = new Vector2(height, rt.sizeDelta.y);
 
 	}
 

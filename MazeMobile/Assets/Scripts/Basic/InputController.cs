@@ -31,7 +31,7 @@ public class InputController : MonoBehaviour {
 			MoveCW = CrossPlatformInputManager.GetAxis ("Horizontal") < 0;
 			MoveCloser = CrossPlatformInputManager.GetButton ("MoveCloser");
 			MoveAway = CrossPlatformInputManager.GetButton ("MoveAway");
-			Pause = CrossPlatformInputManager.GetButton ("Pause");
+			Pause = CrossPlatformInputManager.GetButtonDown ("Pause");
 			#endif
 
 
@@ -51,7 +51,7 @@ public class InputController : MonoBehaviour {
 
 		if (InputMode == EInputMode.MENU) {
 			#if UNITY_ANDROID
-			Pause = CrossPlatformInputManager.GetButton ("Pause");
+			Pause = CrossPlatformInputManager.GetButtonDown ("Pause");
 			#endif
 
 
