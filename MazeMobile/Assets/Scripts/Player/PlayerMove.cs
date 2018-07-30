@@ -52,9 +52,11 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void FixedUpdate(){
+		
 		FaceTowardsGoal ();
 		if (!GameManager.Instance.Player.PlayerHealth.IsAlive)
 			return;
+		
 		UpdateMovement ();
 		MoveAround ();
 	

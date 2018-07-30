@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour {
 
-
 	[SerializeField] GameObject escapeMenuPanel;
-
-
 
 	void Awake () {
 		escapeMenuPanel.SetActive (false);
@@ -28,8 +25,8 @@ public class PauseMenu : MonoBehaviour {
 				print ("pause");
 			}
 		}
-
 	}
+
 
 	void PauseGame(){
 		Time.timeScale = 0;
@@ -37,6 +34,7 @@ public class PauseMenu : MonoBehaviour {
 		GameManager.Instance.InputController.SetInputMode (InputController.EInputMode.MENU);
 		GameManager.Instance.IsGamePaused = true;
 	}
+
 
 	void ResumeGame(){
 		Time.timeScale = 1;

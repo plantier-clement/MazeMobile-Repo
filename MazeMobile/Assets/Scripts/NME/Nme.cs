@@ -15,22 +15,32 @@ public class Nme : MonoBehaviour {
 	}
 
 
-	private NmeDamage m_NmeDamage;
-	public NmeDamage NmeDamage {
-		get {
-			if (m_NmeDamage == null)
-				m_NmeDamage = GetComponent <NmeDamage> ();
-			return m_NmeDamage;
-		}
-	}
-
-
 	private NmeHealth m_NmeHealth;
 	public NmeHealth NmeHealth {
 		get {
 			if (m_NmeHealth == null)
 				m_NmeHealth = GetComponent <NmeHealth> ();
 			return m_NmeHealth;
+		}
+	}
+
+
+	private NmeDamageOnHit m_NmeDamageOnHit;
+	public NmeDamageOnHit NmeDamage {
+		get {
+			if (m_NmeDamageOnHit == null)
+				m_NmeDamageOnHit = GetComponent <NmeDamageOnHit> ();
+			return m_NmeDamageOnHit;
+		}
+	}
+
+
+	private NmeDamageOnMove m_NmeDamageOnMove;
+	public NmeDamageOnMove NmeDamageOnMove {
+		get {
+			if (m_NmeDamageOnMove == null)
+				m_NmeDamageOnMove = GetComponent <NmeDamageOnMove> ();
+			return m_NmeDamageOnMove;
 		}
 	}
 

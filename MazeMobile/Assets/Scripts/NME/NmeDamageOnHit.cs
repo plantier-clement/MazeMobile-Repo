@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Nme))]
-public class NmeDamage : MonoBehaviour {
+public class NmeDamageOnHit : MonoBehaviour {
 
 
 
