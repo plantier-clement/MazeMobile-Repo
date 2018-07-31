@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 34725920}
   - component: {fileID: 34725921}
   m_Layer: 5
-  m_Name: Bridge_2-1
+  m_Name: Bridge_1-0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 53039274}
   - component: {fileID: 53039273}
   m_Layer: 5
-  m_Name: In start-3
+  m_Name: In start
   m_TagString: BridgeIn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc87d4f6853ab5489fd961637e0ed78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIndex: 4
 --- !u!1 &69348319
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +650,7 @@ GameObject:
   - component: {fileID: 228383344}
   - component: {fileID: 228383343}
   m_Layer: 5
-  m_Name: Out 3-2
+  m_Name: Out 1
   m_TagString: BridgeOut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -736,6 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc87d4f6853ab5489fd961637e0ed78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIndex: 1
 --- !u!1001 &300771151
 Prefab:
   m_ObjectHideFlags: 0
@@ -869,7 +871,7 @@ GameObject:
   - component: {fileID: 317784005}
   - component: {fileID: 317784004}
   m_Layer: 5
-  m_Name: In 3-2
+  m_Name: In 2
   m_TagString: BridgeIn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -956,6 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc87d4f6853ab5489fd961637e0ed78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIndex: 2
 --- !u!1 &324329934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1266,7 @@ GameObject:
   - component: {fileID: 501413991}
   - component: {fileID: 501413992}
   m_Layer: 5
-  m_Name: Bridge_start-3
+  m_Name: Bridge_start-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2306,7 +2309,7 @@ GameObject:
   - component: {fileID: 1232736075}
   - component: {fileID: 1232736077}
   m_Layer: 5
-  m_Name: In 2-1
+  m_Name: In 1
   m_TagString: BridgeIn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2366,6 +2369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc87d4f6853ab5489fd961637e0ed78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIndex: 1
 --- !u!50 &1232736075
 Rigidbody2D:
   serializedVersion: 4
@@ -2741,7 +2745,7 @@ GameObject:
   - component: {fileID: 1393135453}
   - component: {fileID: 1393135452}
   m_Layer: 5
-  m_Name: Out start-3
+  m_Name: Out 2
   m_TagString: BridgeOut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2828,6 +2832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc87d4f6853ab5489fd961637e0ed78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIndex: 2
 --- !u!224 &1480767407 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224605142004940152, guid: a1430001ec123fd4c9cc3689512e6bac,
@@ -2878,7 +2883,7 @@ GameObject:
   - component: {fileID: 1536500058}
   - component: {fileID: 1536500059}
   m_Layer: 5
-  m_Name: Bridge_3-2
+  m_Name: Bridge_2-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3053,21 +3058,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114251708237143184, guid: a1430001ec123fd4c9cc3689512e6bac,
-        type: 2}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 1389700644}
     - target: {fileID: 114401543650275560, guid: a1430001ec123fd4c9cc3689512e6bac,
         type: 2}
       propertyPath: startBridgeIn
       value: 
-      objectReference: {fileID: 53039271}
+      objectReference: {fileID: 53039270}
     - target: {fileID: 114401543650275560, guid: a1430001ec123fd4c9cc3689512e6bac,
         type: 2}
       propertyPath: startBridgeOut
       value: 
-      objectReference: {fileID: 1393135450}
+      objectReference: {fileID: 1393135449}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1430001ec123fd4c9cc3689512e6bac, type: 2}
   m_IsPrefabAsset: 0
@@ -3518,7 +3518,7 @@ GameObject:
   - component: {fileID: 1954079990}
   - component: {fileID: 1954079992}
   m_Layer: 5
-  m_Name: Out 2-1
+  m_Name: Out 0
   m_TagString: BridgeOut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3578,6 +3578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc87d4f6853ab5489fd961637e0ed78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIndex: 0
 --- !u!50 &1954079990
 Rigidbody2D:
   serializedVersion: 4

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BridgeDetector : MonoBehaviour {
 
+
+
+	public int layerIndex;
+
 	PlayerMove playerMove;
 
 	GameObject thisSide;
@@ -16,7 +20,7 @@ public class BridgeDetector : MonoBehaviour {
 			return;
 	
 		playerMove = coll.GetComponent <PlayerMove>();
-		playerMove.SetCanCrossBridge (true, thisSide.transform, otherSide.transform);
+		playerMove.SetCanCrossBridge (true, thisSide, otherSide);
 
 	}
 

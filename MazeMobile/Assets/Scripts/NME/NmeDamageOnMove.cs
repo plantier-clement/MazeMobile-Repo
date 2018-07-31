@@ -18,6 +18,10 @@ public class NmeDamageOnMove : MonoBehaviour {
 			return;
 
 		player = coll.GetComponent <Player> ();
+
+		if (!player.PlayerHealth.IsAlive)
+			return;
+		
 		isPlayerInside = true;
 
 	}

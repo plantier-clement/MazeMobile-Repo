@@ -18,17 +18,18 @@ public class PlayerMove : MonoBehaviour {
 	[SerializeField] float bridgeCrossTime;
 	[SerializeField] AnimationCurve bridgeCurve;
 
-	[SerializeField] Transform startBridgeIn;
-	[SerializeField] Transform startBridgeOut;
+	[SerializeField] GameObject startBridgeIn;
+	[SerializeField] GameObject startBridgeOut;
 
 	bool canCrossBridge;
+	bool canMoveAround;
 	float speedToUse;
 
 	Transform start;
 	Transform goal;
 
-	Transform bridgeThisSide;
-	Transform bridgeOtherSide;
+	GameObject bridgeThisSide;
+	GameObject bridgeOtherSide;
 
 	float playerMovement;
 	int currentLayerIndex;
@@ -43,10 +44,13 @@ public class PlayerMove : MonoBehaviour {
 		}
 	}
 
-
-	void Start(){
+	void Awake(){
 		start = GameManager.Instance.LevelManager.Start.transform;
 		goal = 	GameManager.Instance.LevelManager.Goal.transform;
+	}
+
+
+	void Start(){
 		PuzzleStart ();
 	}
 
@@ -59,32 +63,20 @@ public class PlayerMove : MonoBehaviour {
 		
 		UpdateMovement ();
 		MoveAround ();
-	
-
 	}
 
 
 	void PuzzleStart(){
 		transform.position = start.position;
+		currentLayerIndex = GameManager.Instance.LevelManager.StartLayer;
+
 		bridgeThisSide = startBridgeIn;
 		bridgeOtherSide = startBridgeOut;
+
 	}
 
 
 	void UpdateMovement (){
-
-		if(currentLayerIndex == 0)
-			speedToUse = speed.innerSpeed;
-
-		if (currentLayerIndex == 1)
-			speedToUse = speed.mediumSpeed;
-
-		if (currentLayerIndex == 2)
-			speedToUse = speed.outerSpeed;
-
-		if (currentLayerIndex == GameManager.Instance.LevelManager.NbOfLayers)
-			speedToUse = 0;
-
 
 		if(InputController.MoveCW){
 			playerMovement = -speedToUse;
@@ -96,12 +88,12 @@ public class PlayerMove : MonoBehaviour {
 			return;
 		}
 
-		if (InputController.MoveCloser && canCrossBridge && bridgeThisSide.tag == "BridgeIn") {
+		if (InputController.MoveCloser && bridgeThisSide.tag == "BridgeIn" && canCrossBridge) {
 			CrossBridge ();
 			return;
 		}
 
-		if (InputController.MoveAway && canCrossBridge && bridgeThisSide.tag == "BridgeOut") {
+		if (InputController.MoveAway && bridgeThisSide.tag == "BridgeOut" && canCrossBridge) {
 			CrossBridge ();
 			return;
 		}
@@ -114,13 +106,13 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 
-	void MoveAround(){
-		transform.RotateAround (goal.position, Vector3.forward, playerMovement * Time.deltaTime);
+	void FaceTowardsGoal(){
+		transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((goal.position.y - transform.position.y), (goal.position.x - transform.position.x)) * Mathf.Rad2Deg);
 	}
 
 
-	void FaceTowardsGoal(){
-		transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((goal.position.y - transform.position.y), (goal.position.x - transform.position.x)) * Mathf.Rad2Deg);
+	void MoveAround(){
+		transform.RotateAround (goal.position, Vector3.forward, playerMovement * Time.deltaTime);
 	}
 
 
@@ -132,7 +124,7 @@ public class PlayerMove : MonoBehaviour {
 
 	IEnumerator LerpCross (float duration) {
 		float elapsedTime = 0;
-		Vector3 desiredPosition = bridgeOtherSide.position;
+		Vector3 desiredPosition = bridgeOtherSide.transform.position;
 
 		while (elapsedTime <= duration) {
 			elapsedTime += Time.deltaTime;
@@ -145,10 +137,24 @@ public class PlayerMove : MonoBehaviour {
 		}
 		transform.position = desiredPosition;
 
+		UpdatePlayerLayer (bridgeThisSide);
+
 	}
 
 
-	public void SetCanCrossBridge (bool value, Transform depart, Transform arrival){
+
+	void UpdatePlayerLayer (GameObject bridge) {
+		currentLayerIndex = bridge.GetComponent<BridgeDetector> ().layerIndex;
+		UpdateSpeedByLayer ();
+	}
+
+
+	public void UpdatePlayerLayer (int newLayer) {
+		currentLayerIndex = newLayer;
+		UpdateSpeedByLayer ();
+	}
+
+	public void SetCanCrossBridge (bool value, GameObject depart, GameObject arrival){
 		canCrossBridge = value;
 		bridgeThisSide = depart;
 		bridgeOtherSide = arrival;
@@ -160,4 +166,19 @@ public class PlayerMove : MonoBehaviour {
 		canCrossBridge = value;
 	}
 
+
+	void UpdateSpeedByLayer (){
+		if(currentLayerIndex == 0)
+			speedToUse = speed.innerSpeed;
+
+		if (currentLayerIndex == 1)
+			speedToUse = speed.mediumSpeed;
+
+		if (currentLayerIndex == 2)
+			speedToUse = speed.outerSpeed;
+
+		if (currentLayerIndex >= GameManager.Instance.LevelManager.NbOfLayers)
+			speedToUse = 0;
+
+	}
 }

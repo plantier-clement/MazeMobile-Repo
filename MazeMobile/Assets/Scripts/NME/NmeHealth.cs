@@ -6,4 +6,14 @@ using UnityEngine;
 public class NmeHealth : Destructible {
 
 
+	public override void Die ()	{
+		base.Die ();
+
+		GameManager.Instance.EventBus.RaiseEvent ("OnNmeDeath");
+
+
+	}
+
+
+
 }

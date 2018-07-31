@@ -14,6 +14,7 @@ public class Bridge : MonoBehaviour {
 	BridgeDetector bridgeInDetect;
 	BridgeDetector bridgeOutDetec;
 
+	GameObject copy;
 
 	void Awake(){
 		goal = GameManager.Instance.LevelManager.Goal.transform;
@@ -25,10 +26,9 @@ public class Bridge : MonoBehaviour {
 		
 		OrientBridgesColl ();
 		GetBridgeDetectorRef ();
-		SetSidesForBridges ();
+		SetSidesForBridgeDetector ();
 
 		SpawnLink ();
-	
 	}
 
 
@@ -45,7 +45,7 @@ public class Bridge : MonoBehaviour {
 	}
 
 
-	void SetSidesForBridges(){
+	void SetSidesForBridgeDetector(){
 		bridgeInDetect.SetSides (bridgeIn, bridgeOut);
 		bridgeOutDetec.SetSides (bridgeOut, bridgeIn);
 	}
@@ -53,18 +53,21 @@ public class Bridge : MonoBehaviour {
 
 	void SpawnLink(){
 
-
-		GameObject copy = Instantiate (linkPrefab, Vector3.zero, Quaternion.identity, this.transform);
+		copy = Instantiate (linkPrefab, Vector3.zero, Quaternion.identity, this.transform);
 		copy.transform.position = Vector3.Lerp (bridgeIn.transform.position, bridgeOut.transform.position, 0.5f);
 		copy.transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((goal.position.y - copy.transform.position.y), (goal.position.x - copy.transform.position.x)) * Mathf.Rad2Deg);
 
+		SetLinkLength ();
+	}
 
+
+	void SetLinkLength(){
+		
 		RectTransform rt = copy.GetComponent <RectTransform>();
 
 		float height;
 		height = Vector3.Distance (bridgeIn.transform.localPosition, bridgeOut.transform.localPosition);
 		rt.sizeDelta = new Vector2(height, rt.sizeDelta.y);
-
 	}
 
 

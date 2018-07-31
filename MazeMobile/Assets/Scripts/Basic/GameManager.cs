@@ -8,6 +8,7 @@ public class GameManager {
 
 	public bool IsGamePaused = false;
 
+
 	private static GameManager m_Instance;
 	public static GameManager Instance {
 		get {
@@ -72,5 +73,7 @@ public class GameManager {
 			m_Player = value;
 		}
 	}
+
+
 
 }

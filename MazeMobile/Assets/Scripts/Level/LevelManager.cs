@@ -55,4 +55,14 @@ public class LevelManager : MonoBehaviour {
 	}
 
 
+	private int m_StartLayer;
+	public int StartLayer {
+		get {
+			if (m_StartLayer == 0)
+				m_StartLayer = Layers.Length + 1;
+			return m_StartLayer;
+		}
+	}
+
+
 }
