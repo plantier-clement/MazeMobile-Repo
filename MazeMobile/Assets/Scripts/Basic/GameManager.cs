@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager {
 
 	private GameObject gameObject;
-
 	public bool IsGamePaused = false;
 
 
@@ -18,6 +18,8 @@ public class GameManager {
 				m_Instance.gameObject.AddComponent <InputController>();
 				m_Instance.gameObject.AddComponent <Timer>();
 				m_Instance.gameObject.AddComponent <LevelManager>();
+
+                UnityEngine.Object.DontDestroyOnLoad(Instance.gameObject);
 			}
 			return m_Instance;
 		}
@@ -75,5 +77,26 @@ public class GameManager {
 	}
 
 
+	private LevelFlow m_LevelFlow;
+	public LevelFlow LevelFlow {
+		get {
+			return m_LevelFlow;
+		}
+		set {
+			m_LevelFlow = value;
+		}
+	}
+
+
+    public void PauseGame() {
+        if(!IsGamePaused)
+            IsGamePaused = true;
+    }
+
+
+    public void UnpauseGame() {
+        if (IsGamePaused)
+            IsGamePaused = false;
+    }
 
 }

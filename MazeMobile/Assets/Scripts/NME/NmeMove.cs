@@ -23,7 +23,8 @@ public class NmeMove : MonoBehaviour {
 
 
 	void FixedUpdate () {
-		Move ();
+        if(!GameManager.Instance.IsGamePaused)
+		    Move ();
 	}
 
 

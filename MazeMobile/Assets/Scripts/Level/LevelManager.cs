@@ -65,4 +65,13 @@ public class LevelManager : MonoBehaviour {
 	}
 
 
+	private int m_GoalLayer;
+	public int GoalLayer {
+		get {
+			if (m_GoalLayer == 0)
+				m_GoalLayer = -1;
+			return m_GoalLayer;
+		}
+	}
+
 }

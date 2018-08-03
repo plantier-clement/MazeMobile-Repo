@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class BridgeDetector : MonoBehaviour {
 
-
-
 	public int layerIndex;
 
 	PlayerMove playerMove;
 
 	GameObject thisSide;
 	GameObject otherSide;
+
+
+	void Start(){
+	
+		if (layerIndex == GameManager.Instance.LevelManager.GoalLayer)
+			transform.position = GameManager.Instance.LevelManager.Goal.transform.position;
+	}
+
 
 
 	void OnTriggerEnter2D (Collider2D coll) {

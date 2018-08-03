@@ -30,7 +30,6 @@ public class Destructible : MonoBehaviour {
 
 	public virtual void Die(){
 
-
 		if (OnDeath != null)
 			OnDeath ();
 

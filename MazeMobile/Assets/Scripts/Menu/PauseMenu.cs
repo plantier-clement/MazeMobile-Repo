@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -25,7 +26,12 @@ public class PauseMenu : MonoBehaviour {
 				ResumeGame ();
 				return;
 			}
+            return;
 		}
+
+        if (GameManager.Instance.InputController.Quit) {
+            QuitToMenu("MainMenu");
+        }
 	}
 
 
@@ -33,7 +39,7 @@ public class PauseMenu : MonoBehaviour {
 		Time.timeScale = 0;
 		escapeMenuPanel.SetActive (true);
 		GameManager.Instance.InputController.SetInputMode (InputController.EInputMode.MENU);
-		GameManager.Instance.IsGamePaused = true;
+        GameManager.Instance.PauseGame();
 	}
 
 
@@ -41,6 +47,11 @@ public class PauseMenu : MonoBehaviour {
 		Time.timeScale = 1;
 		escapeMenuPanel.SetActive (false);
 		GameManager.Instance.InputController.SetInputMode (InputController.EInputMode.INGAME);
-		GameManager.Instance.IsGamePaused = false;
+        GameManager.Instance.UnpauseGame();
 	}
+
+
+    void QuitToMenu(string name) {
+        SceneManager.LoadScene(name);
+    }
 }

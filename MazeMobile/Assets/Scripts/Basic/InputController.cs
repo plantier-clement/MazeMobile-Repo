@@ -20,8 +20,10 @@ public class InputController : MonoBehaviour {
 	public bool MoveCloser;
 	public bool MoveAway;
 
-	public bool Pause; 
-
+    public bool Start;
+	public bool Pause;
+    public bool Quit;
+    public bool Options;
 
 	void Update(){
 
@@ -29,8 +31,8 @@ public class InputController : MonoBehaviour {
 			#if UNITY_ANDROID
 			MoveCCW = CrossPlatformInputManager.GetAxis ("Horizontal") > 0;
 			MoveCW = CrossPlatformInputManager.GetAxis ("Horizontal") < 0;
-			MoveCloser = CrossPlatformInputManager.GetButton ("MoveCloser");
-			MoveAway = CrossPlatformInputManager.GetButton ("MoveAway");
+			MoveCloser = CrossPlatformInputManager.GetButtonDown ("MoveCloser");
+			MoveAway = CrossPlatformInputManager.GetButtonDown ("MoveAway");
 			Pause = CrossPlatformInputManager.GetButtonDown ("Pause");
 			#endif
 
@@ -49,13 +51,18 @@ public class InputController : MonoBehaviour {
 		}
 
 
-		if (InputMode == EInputMode.MENU) {
-			#if UNITY_ANDROID
+		if (InputMode == EInputMode.MENU) { 
+            #if UNITY_ANDROID
+            Start = CrossPlatformInputManager.GetButtonDown("Start");
+            Options = CrossPlatformInputManager.GetButtonDown("Options");
 			Pause = CrossPlatformInputManager.GetButtonDown ("Pause");
-			#endif
+            Quit = CrossPlatformInputManager.GetButtonDown("Quit");
+            #endif
 
 
-			#if UNITY_EDITOR
+            #if UNITY_EDITOR
+            Start = Input.GetButtonDown("Start") || CrossPlatformInputManager.GetButtonDown("Start");
+            Quit = Input.GetButtonDown("Quit") || CrossPlatformInputManager.GetButtonDown("Quit");
 			Pause = Input.GetButtonDown ("Pause") || CrossPlatformInputManager.GetButtonDown ("Pause");
 			#endif
 		

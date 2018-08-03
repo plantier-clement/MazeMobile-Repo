@@ -60,6 +60,9 @@ public class PlayerMove : MonoBehaviour {
 		FaceTowardsGoal ();
 		if (!GameManager.Instance.Player.PlayerHealth.IsAlive)
 			return;
+
+        if (GameManager.Instance.IsGamePaused)
+            return;
 		
 		UpdateMovement ();
 		MoveAround ();

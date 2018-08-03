@@ -6,5 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Zoo.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 958a2faff3b2ed2478812c2fe61156bb
+  - enabled: 1
+    path: Assets/Scenes/ZooClem.unity
     guid: 4ac58309590348e4ca0781bb9af8f644
+  m_configObjects: {}

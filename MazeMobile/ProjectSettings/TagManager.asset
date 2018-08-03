@@ -8,6 +8,7 @@ TagManager:
   - BridgeOut
   - Layer
   - NME
+  - Level
   layers:
   - Default
   - TransparentFX
