@@ -61,19 +61,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Basic\EventBus.cs" />
-    <Compile Include="Assets\Scripts\Basic\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Basic\InputController.cs" />
-    <Compile Include="Assets\Scripts\Basic\Timer.cs" />
-    <Compile Include="Assets\Scripts\Level\Bridge.cs" />
-    <Compile Include="Assets\Scripts\Level\BridgeDetector.cs" />
-    <Compile Include="Assets\Scripts\Level\GoalDetection.cs" />
-    <Compile Include="Assets\Scripts\Level\Layer.cs" />
-    <Compile Include="Assets\Scripts\Level\LevelLayout.cs" />
-    <Compile Include="Assets\Scripts\Level\LevelManager.cs" />
-    <Compile Include="Assets\Scripts\LevelFlow.cs" />
-    <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\Menu\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\GPE\Bridge.cs" />
+    <Compile Include="Assets\Scripts\GPE\BridgeDetector.cs" />
+    <Compile Include="Assets\Scripts\GPE\GoalDetection.cs" />
+    <Compile Include="Assets\Scripts\GPE\Node.cs" />
+    <Compile Include="Assets\Scripts\LevelCreator\LevelCreator.cs" />
+    <Compile Include="Assets\Scripts\LevelCreator\LevelCreatorEditor.cs" />
+    <Compile Include="Assets\Scripts\Menu And Flow\LevelFlow.cs" />
+    <Compile Include="Assets\Scripts\Menu And Flow\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Menu And Flow\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\NME\Nme.cs" />
     <Compile Include="Assets\Scripts\NME\NmeDamageOnHit.cs" />
     <Compile Include="Assets\Scripts\NME\NmeDamageOnMove.cs" />
@@ -83,6 +79,11 @@
     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Shared\Destructible.cs" />
+    <Compile Include="Assets\Scripts\Shared\EventBus.cs" />
+    <Compile Include="Assets\Scripts\Shared\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Shared\InputController.cs" />
+    <Compile Include="Assets\Scripts\Shared\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\Shared\Timer.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Projects/Unity Projects/MazeMobile-Repo/MazeMobile/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

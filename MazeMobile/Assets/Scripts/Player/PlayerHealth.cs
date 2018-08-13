@@ -54,7 +54,8 @@ public class PlayerHealth : Destructible {
 
 	void SpawnAtSpawnPoint(){
 		transform.position = spawnPoint.position;
-		transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((GameManager.Instance.LevelManager.Goal.transform.position.y - transform.position.y), (GameManager.Instance.LevelManager.Goal.transform.position.x - transform.position.x)) * Mathf.Rad2Deg);
+		transform.eulerAngles = new Vector3(0,0,Mathf.Atan2((GameManager.Instance.LevelManager.Goal.transform.position.y - transform.position.y), 
+            (GameManager.Instance.LevelManager.Goal.transform.position.x - transform.position.x)) * Mathf.Rad2Deg);
 	}
 
 

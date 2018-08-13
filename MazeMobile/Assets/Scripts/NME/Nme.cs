@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Nme : MonoBehaviour {
 
-	[SerializeField] int m_NmeLayer;
-	public int GetNmeLayer () {
-		return m_NmeLayer;
-	}
+
+    public float NmeStartPosX;
+    public float NmeStartPosY;
+    public int NmeStartLayerId;
 
 
-	private NmeMove m_NmeMove;
+
+    private NmeMove m_NmeMove;
 	public NmeMove NmeMove {
 		get {
 			if (m_NmeMove == null)
