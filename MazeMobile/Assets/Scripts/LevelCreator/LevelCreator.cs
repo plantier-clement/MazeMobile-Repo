@@ -11,6 +11,8 @@ public class LevelCreator : MonoBehaviour {
     public class Layer {
         public int LayerId;
         public int NodeNumber;
+        [Tooltip("Radius: 50 / 80 / ?")]
+
         public float RadiusX;
         public float RadiusY;
         public bool isLayerBuilt = false;
@@ -64,8 +66,11 @@ public class LevelCreator : MonoBehaviour {
 
     Vector3 spawnCoordinates;
     int nodesToSpawn;
+    [SerializeField]
     GameObject subLevelToBuild;
     GameObject layerToBuild;
+    GameObject nmeParent;
+
 
     GameObject m_Goal; 
     GameObject levelCreatorGoal {
@@ -77,13 +82,11 @@ public class LevelCreator : MonoBehaviour {
     }
 
 
-
     void BuildSubLevel() {
         subLevelToBuild = new GameObject("LEVEL_" + "0");
         subLevelToBuild.transform.SetParent(GameObject.Find("GAMEPLAY").transform);
         subLevelToBuild.transform.localPosition = new Vector3(0, 0, 0);
         subLevelToBuild.transform.localScale = new Vector3(1, 1, 1);
-
 
         subLevels[0].isSubLevelBuilt = true;
     }
@@ -139,7 +142,6 @@ public class LevelCreator : MonoBehaviour {
         Nodes.Clear();
 
         for (int i = 0; i < LayersBuilt.Count; i++) {
-            print("here");
             layers[i].isLayerBuilt = false;
             DestroyImmediate(LayersBuilt[i]);
         }
@@ -147,7 +149,7 @@ public class LevelCreator : MonoBehaviour {
         LayersBuilt.Clear();
     }
 
-
+   
 
     public void BuildSelected() {
         spawnCoordinates = Vector3.zero;

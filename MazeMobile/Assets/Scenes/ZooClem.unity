@@ -1552,7 +1552,7 @@ MonoBehaviour:
     RadiusX: 50
     RadiusY: 50
     isLayerBuilt: 0
-  - LayerId: 1
+  - LayerId: 0
     NodeNumber: 16
     RadiusX: 80
     RadiusY: 80
@@ -1565,6 +1565,7 @@ MonoBehaviour:
   LayersBuilt: []
   spawnPoint: {fileID: 0}
   spawnPointExtra: {fileID: 0}
+  subLevelToBuild: {fileID: 1689457433}
 --- !u!4 &489031869
 Transform:
   m_ObjectHideFlags: 0
@@ -1572,7 +1573,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 489031867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 115.76345, y: 509.8607, z: 3.46875}
+  m_LocalPosition: {x: 122.25, y: 509.8607, z: 3.46875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

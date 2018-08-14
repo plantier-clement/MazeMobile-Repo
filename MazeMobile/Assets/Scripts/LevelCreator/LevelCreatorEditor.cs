@@ -11,12 +11,16 @@ public class LevelCreatorEditor : Editor {
     int height = 20;
     int width = 100;
     int spacing = 20;
+    LevelCreator levelCreator;
+
+    private void OnEnable() {
+        levelCreator = (LevelCreator)target;
+    }
 
 
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
 
-        LevelCreator levelCreator = (LevelCreator)target;
 
         GUILayout.Space(spacing);
         EditorGUILayout.LabelField("Selection", EditorStyles.boldLabel);
