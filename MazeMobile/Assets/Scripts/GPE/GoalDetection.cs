@@ -6,6 +6,7 @@ using UnityEngine;
 public class GoalDetection : MonoBehaviour {
 
 
+    public int LayerId;
 
 
 	void OnTriggerEnter2D(Collider2D coll){

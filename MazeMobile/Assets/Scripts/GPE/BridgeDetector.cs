@@ -4,19 +4,12 @@ using UnityEngine;
 
 public class BridgeDetector : MonoBehaviour {
 
-	public int layerIndex;
+	public int LayerID;
 
 	PlayerMove playerMove;
 
 	GameObject thisSide;
 	GameObject otherSide;
-
-
-	void Start(){
-	
-		if (layerIndex == GameManager.Instance.LevelManager.GoalLayer)
-			transform.position = GameManager.Instance.LevelManager.Goal.transform.position;
-	}
 
 
 
@@ -31,7 +24,6 @@ public class BridgeDetector : MonoBehaviour {
 	}
 
 
-
 	void OnTriggerExit2D(Collider2D coll) {
 		if (coll.tag != "Player")
 			return;
@@ -40,7 +32,6 @@ public class BridgeDetector : MonoBehaviour {
 		playerMove.SetCanCrossBridge (false);
 	
 	}
-
 
 
 	public void SetSides(GameObject myself, GameObject other){

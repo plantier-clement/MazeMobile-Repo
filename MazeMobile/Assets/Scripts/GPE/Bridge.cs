@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Bridge : MonoBehaviour {
 
-
-    public int LayerId;
-    public float PosX;
-    public float PosY;
-
-
     [SerializeField] GameObject bridgeIn;
 	[SerializeField] GameObject bridgeOut;
 	[SerializeField] GameObject linkPrefab;

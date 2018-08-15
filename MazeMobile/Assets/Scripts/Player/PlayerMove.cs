@@ -147,7 +147,7 @@ public class PlayerMove : MonoBehaviour {
 
 
 	void UpdatePlayerLayer (GameObject bridge) {
-		currentLayerIndex = bridge.GetComponent<BridgeDetector> ().layerIndex;
+		currentLayerIndex = bridge.GetComponent<BridgeDetector> ().LayerID;
 		UpdateSpeedByLayer ();
 	}
 

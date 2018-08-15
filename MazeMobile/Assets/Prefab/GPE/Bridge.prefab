@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 50690172503836092}
   - component: {fileID: 222065797838759370}
   m_Layer: 5
-  m_Name: Out 0
+  m_Name: Ext
   m_TagString: BridgeOut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 50924195956799168}
   - component: {fileID: 222385195933998760}
   m_Layer: 5
-  m_Name: In 1
+  m_Name: Int
   m_TagString: BridgeIn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
