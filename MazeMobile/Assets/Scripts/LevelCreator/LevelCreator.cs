@@ -33,12 +33,14 @@ public class LevelCreator : MonoBehaviour {
         }
     }
 
-    [Header("Prefabs")]
-    public GameObject nodePrefab;
-    public GameObject nmeBluePrefab;
-    public GameObject bridgePrefab;
+    [Header("Level Creation")]
+    public GameObject LayerPrefab;
+    public GameObject NodePrefab;
+    public GameObject BridgePrefab;
+    public GameObject GoalPrefab;
+    public GameObject StartPrefab;
 
-
-
-
+    [Header("GPE")]
+    public GameObject NmeBluePrefab;
+    public GameObject NmeOrangePrefab;
 }

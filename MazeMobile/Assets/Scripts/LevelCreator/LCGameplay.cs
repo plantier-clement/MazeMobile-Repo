@@ -79,7 +79,7 @@ public class LCGameplay : MonoBehaviour {
 
         spawnCoordinates = Vector3.Lerp(SpawningNode.transform.position, ExtraSpawningNode.transform.position, 0.5f);
 
-        GameObject bridgeToSpawn = Instantiate(LevelCreator.bridgePrefab, spawnCoordinates, Quaternion.identity);
+        GameObject bridgeToSpawn = Instantiate(LevelCreator.BridgePrefab, spawnCoordinates, Quaternion.identity);
         SetupBridge(bridgeToSpawn);
     }
 
@@ -112,7 +112,7 @@ public class LCGameplay : MonoBehaviour {
             return;
 
         spawnCoordinates = SpawningNode.transform.position;
-        GameObject nmeBlueToSpawn = Instantiate(LevelCreator.nmeBluePrefab, spawnCoordinates, Quaternion.identity);
+        GameObject nmeBlueToSpawn = Instantiate(LevelCreator.NmeBluePrefab, spawnCoordinates, Quaternion.identity);
 
         SetupNme(nmeBlueToSpawn, SpawningNode);
     }

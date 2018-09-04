@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
           
-    public string LevelName;
+    public string StartLevelName;
 
     private void Awake() {
         GameManager.Instance.InputController.SetInputMode(InputController.EInputMode.MENU);
@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour {
         }
 
         if (GameManager.Instance.InputController.Start) {
-            StartGame(LevelName);
+            StartGame(StartLevelName);
             return;
         }
 

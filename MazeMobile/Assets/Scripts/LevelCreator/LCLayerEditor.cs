@@ -35,8 +35,8 @@ public class LCLayerEditor : Editor {
                 GUILayout.BeginVertical();
 
                 m_LCLayer.NodesOnNextLayer = (int)EditorGUILayout.IntField("Nodes Number", m_LCLayer.NodesOnNextLayer);
-                m_LCLayer.RadiusXOnNextLayer = (float)EditorGUILayout.FloatField("Layer Radius X", m_LCLayer.RadiusXOnNextLayer);
-                m_LCLayer.RadiusYOnNextLayer = (float)EditorGUILayout.FloatField("Layer Radius Y", m_LCLayer.RadiusYOnNextLayer);
+             //   m_LCLayer.RadiusXOnNextLayer = (float)EditorGUILayout.FloatField("Layer Radius X", m_LCLayer.RadiusXOnNextLayer);
+              //  m_LCLayer.RadiusYOnNextLayer = (float)EditorGUILayout.FloatField("Layer Radius Y", m_LCLayer.RadiusYOnNextLayer);
 
                 GUILayout.EndVertical();
 

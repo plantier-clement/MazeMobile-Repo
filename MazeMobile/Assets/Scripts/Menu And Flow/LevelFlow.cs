@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class LevelFlow : MonoBehaviour {
 
-    [Header("Level Names")]
-    [SerializeField] string[] levels;
+    [Header("Sub-Level Names")]
+    [SerializeField] string[] subLevels;
     [Space(5)]
 
     [Header("Level Start")]
@@ -59,14 +59,14 @@ public class LevelFlow : MonoBehaviour {
 
         m_CurrentScene = scene;
 
-        if (levels.Length == 1)
+        if (subLevels.Length == 1)
             m_IsSingleLevel = true;
 
         if (GameManager.Instance.InputController.InputMode != InputController.EInputMode.MENU)
             GameManager.Instance.InputController.SetInputMode(InputController.EInputMode.MENU);
 
         levelNameTxt.text = m_CurrentScene.name;
-        subLevelNameTxt.text = (subLevelIndex + 1) + " - " + levels.Length;
+        subLevelNameTxt.text = (subLevelIndex + 1) + " - " + subLevels.Length;
 
         GameManager.Instance.PauseGame();
         GameManager.Instance.Timer.Add(PuzzleStart, puzzleStartTimer);
@@ -97,7 +97,7 @@ public class LevelFlow : MonoBehaviour {
 
     void TransitionToNextSubLvl() {
 
-        if(subLevelIndex == levels.Length - 1) {
+        if(subLevelIndex == subLevels.Length - 1) {
             LevelComplete();
             return;
         }

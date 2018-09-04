@@ -23,8 +23,8 @@ public class LCLayer : MonoBehaviour {
     [HideInInspector] public List<GameObject> Nodes = new List<GameObject>();
 
     [HideInInspector] public int NodesOnNextLayer = 8;
-    [HideInInspector] public float RadiusXOnNextLayer;
-    [HideInInspector] public float RadiusYOnNextLayer;
+    [HideInInspector] public float RadiusXOnNextLayer = 50f;
+    [HideInInspector] public float RadiusYOnNextLayer = 50f;
     GameObject layerToAdd;
     Vector3 spawnCoordinates;
     SubLevel subLevelCmpt;
@@ -34,7 +34,8 @@ public class LCLayer : MonoBehaviour {
         if (!LevelCreator.LCSubLevel.SubLevels.Contains(selection))
             return;
 
-        layerToAdd = new GameObject("Layer_" + Layers.Count);
+        layerToAdd = Instantiate(LevelCreator.LayerPrefab, Vector3.zero, Quaternion.identity, selection.transform);
+        layerToAdd.name = "Layer_" + Layers.Count;
 
         Layers.Add(layerToAdd);
         layerToAdd.transform.SetParent(selection.transform);
@@ -83,7 +84,7 @@ public class LCLayer : MonoBehaviour {
 
             spawnCoordinates = new Vector3(posX, posY, 0) + layer.transform.position;
 
-            GameObject copy = Instantiate(LevelCreator.nodePrefab, spawnCoordinates, Quaternion.identity, layer.transform);
+            GameObject copy = Instantiate(LevelCreator.NodePrefab, spawnCoordinates, Quaternion.identity, layer.transform);
             SetupNode(copy, Layers.Count - 1);
         }
     }

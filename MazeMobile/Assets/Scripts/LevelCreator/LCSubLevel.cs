@@ -66,6 +66,13 @@ public class LCSubLevel : MonoBehaviour {
         gpeParent.transform.localPosition = new Vector3(0, 0, 0);
         gpeParent.transform.localScale = new Vector3(1, 1, 1);
         subLevelCmpt.GpeParent = gpeParent;
+
+
+        GameObject goal = Instantiate(LevelCreator.GoalPrefab, Vector3.zero, Quaternion.identity, subLevelToAdd.transform);
+        goal.transform.localPosition = new Vector3(0, 0, 0);
+
+        GameObject start = Instantiate(LevelCreator.StartPrefab, Vector3.zero, Quaternion.identity, subLevelToAdd.transform);
+        start.transform.localPosition = new Vector3(0, 0, 0);
     }
 
 
@@ -76,7 +83,6 @@ public class LCSubLevel : MonoBehaviour {
 
         for (int i = 0; i < SubLevels.Count; i++) {
             SubLevels[i].name = "SubLevel_" + i;
-            print("here");
         }
 
     }
